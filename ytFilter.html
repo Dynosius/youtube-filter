@@ -1,0 +1,93 @@
+<html  onkeydown="obradiKeyPress(event)">
+    <head>
+        <!-- bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+        html {
+            height: 100%;
+        }
+        body{
+            min-height: 100%;
+            overflow: auto;
+        }
+        .bg 
+        {
+            background:url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg") top right no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+        }
+        .paginate
+        {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .embed-overlay
+        {
+            z-index: 1000;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, 0.8);
+            /* visibility: hidden; */
+        }
+        .frame
+        {
+            opacity: 1;
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            margin-top: 2%;
+            background-color: #777;
+            display:block;
+        }
+        </style>
+        <title>YT Search Engine</title>
+    </head>
+    <body class="bg">
+        <div class="container">
+            <div class="form-group">
+                <input id="trazilica" value='funny cats' class="form-control" style="width: 50%;"/>
+                <button id="btnSubmit"  onClick="search()"  class="btn btn-primary" style="position: relative;">Traži</button>
+            </div>
+            <div id="dropdowns">
+                <strong>Trajanje u min:</strong>
+                <input style="width: 50px" id="durationLower" placeholder="0">
+                <input style="width: 100px" id="durationHigher">
+                <strong>| Broj pregleda: </strong>
+                <input style="width: 100px" id="viewsLower" placeholder="od">
+                <input style="width: 100px" id="viewsHigher" placeholder="do"/>
+                <strong>| Minimalna ocjena: </strong>
+                <input style="width: 90px" id="rating" placeholder="Od 0 do 100"/>
+                <strong>| Izašlo u zadnjih: </strong>
+                <input style="width: 100px" id="releaseDate" placeholder="dana"/>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div id="videos">
+            </div>
+            <div id="embed" class="embed-overlay"  style="visibility: hidden" onclick="hideDiv()">
+                <iframe class="frame" allowfullscreen="allowfullscreen" allow="autoplay" id="frame"></iframe>
+            </div>
+        </div>
+
+
+        <div class="paginate">
+            <ul class="pagination">
+                <li class="item"><a class="page-link" onclick='setPageClicked(this)'>Previous</a></li>
+                <li class="page-item"><a class="page-link" onclick='setPageClicked(this)'>1</a></li>
+                <li class="page-item"><a class="page-link" onclick='setPageClicked(this)'>2</a></li>
+                <li class="page-item"><a class="page-link" onclick='setPageClicked(this)'>3</a></li>
+                <li class="page-item"><a class="page-link" onclick='setPageClicked(this)'>4</a></li>
+                <li class="page-item"><a class="page-link" onclick='setPageClicked(this)'>5</a></li>
+                <li class="page-item"><a class="page-link" onclick='setPageClicked(this)'>6</a></li>
+                <li class="item"><a class="page-link" onclick='setPageClicked(this)'>Next</a></li>
+            </ul>
+        </div>
+    </body>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="filterYT.js"></script>
+</html>
